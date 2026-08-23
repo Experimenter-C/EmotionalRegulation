@@ -272,14 +272,24 @@ const reflections = [
   "Small comforts count most on days when large solutions feel far away."
 ];
 
-const kittenSuggestions = [
-  "Official kitten advice: drink some water before declaring war on the universe.",
-  "Today's kitten prescription: one song, one deep breath, zero unnecessary decisions for five minutes.",
-  "A cat would probably sit in the sunlight and ignore half its problems. There may be a lesson there.",
-  "Stretch. Cats have somehow built an entire reputation around doing this.",
-  "Consider blinking slowly at the day until it becomes less dramatic.",
-  "If the plan is too much, reduce it to one paw-sized step."
-];
+const kittenSuggestions = {
+  normal: [
+    "Official kitten advice: drink some water before declaring war on the universe.",
+    "Today's kitten prescription: one song, one deep breath, zero unnecessary decisions for five minutes.",
+    "A cat would probably sit in the sunlight and ignore half its problems. There may be a lesson there.",
+    "Stretch. Cats have somehow built an entire reputation around doing this.",
+    "Consider blinking slowly at the day until it becomes less dramatic.",
+    "If the plan is too much, reduce it to one paw-sized step."
+  ],
+  doctor: [
+    "Doctor kitten recommends water, one slow breath, and postponing non-urgent thoughts for ten minutes.",
+    "Clinical note from doctor kitten: this feeling deserves care, not cross-examination.",
+    "Doctor kitten prescribes one small comfort and absolutely no dramatic life decisions while tired.",
+    "Doctor kitten says your nervous system may appreciate lower lights, softer music, and fewer tabs open.",
+    "Doctor kitten's chart says: rest counts, even when it does not look productive.",
+    "Doctor kitten recommends treating the next hour gently and checking in again later."
+  ]
+};
 
 const form = document.querySelector("#mood-form");
 const slider = document.querySelector("#mood-slider");
@@ -291,6 +301,8 @@ const musicList = document.querySelector("#music-list");
 const activityList = document.querySelector("#activity-list");
 const reflectionText = document.querySelector("#reflection-text");
 const kittenText = document.querySelector("#kitten-text");
+const kittenTitle = document.querySelector("#kitten-title");
+const kittenPortrait = document.querySelector("#kitten-portrait");
 const safetyNote = document.querySelector("#safety-note");
 let lastAnswers = null;
 
@@ -340,6 +352,7 @@ function getAnswers() {
     need: data.get("need") || "comfort",
     energy: data.get("energy") || "little",
     place: data.get("place") || "either",
+    kitten: data.get("kitten") || "normal",
     time: data.get("time") || "15"
   };
 }
@@ -375,13 +388,21 @@ function renderRecommendations(answers) {
   fillList(musicList, selectedSongs);
   fillList(activityList, selectedActivities);
   reflectionText.textContent = randomFrom(reflections);
-  kittenText.textContent = randomFrom(kittenSuggestions);
+  renderKitten(answers.kitten);
 
   safetyNote.classList.toggle("hidden", !needsSafetyNote(answers));
   document.querySelectorAll(".result-card").forEach((card) => {
     card.classList.remove("fade-in");
     window.requestAnimationFrame(() => card.classList.add("fade-in"));
   });
+}
+
+function renderKitten(kittenStyle) {
+  const style = kittenStyle === "doctor" ? "doctor" : "normal";
+  kittenTitle.textContent = style === "doctor" ? "Doctor kitten's tiny suggestion" : "Kitten's tiny suggestion";
+  kittenText.textContent = randomFrom(kittenSuggestions[style]);
+  kittenPortrait.classList.toggle("doctor-kitten", style === "doctor");
+  kittenPortrait.classList.toggle("normal-kitten", style !== "doctor");
 }
 
 function chooseMoodCategory({ mood, feeling, need }) {

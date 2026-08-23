@@ -102,6 +102,14 @@
         </fieldset>
 
         <fieldset>
+          <legend>Which kitten should respond?</legend>
+          <div class="option-grid compact kitten-choice">
+            <label><input type="radio" name="kitten" value="normal" checked>Normal kitten</label>
+            <label><input type="radio" name="kitten" value="doctor">Doctor kitten</label>
+          </div>
+        </fieldset>
+
+        <fieldset>
           <legend>How much time would you like to give yourself?</legend>
           <div class="option-grid compact">
             <label><input type="radio" name="time" value="5">5 minutes</label>
@@ -142,7 +150,25 @@
           <p id="reflection-text"></p>
         </article>
         <article class="result-card kitten-card">
-          <h3>Kitten's tiny suggestion</h3>
+          <h3 id="kitten-title">Kitten's tiny suggestion</h3>
+          <div id="kitten-portrait" class="kitten-portrait normal-kitten" aria-hidden="true">
+            <div class="mini-ear mini-left-ear"></div>
+            <div class="mini-ear mini-right-ear"></div>
+            <div class="mini-head">
+              <span class="mini-eye mini-left-eye"></span>
+              <span class="mini-eye mini-right-eye"></span>
+              <span class="mini-nose"></span>
+              <span class="mini-mouth"></span>
+            </div>
+            <div class="doctor-cap">
+              <span></span>
+            </div>
+            <div class="mini-body">
+              <span class="doctor-coat"></span>
+              <span class="doctor-badge"></span>
+            </div>
+            <div class="mini-tail"></div>
+          </div>
           <p id="kitten-text"></p>
         </article>
       </div>
