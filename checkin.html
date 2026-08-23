@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Check In | Kittens Paradise</title>
   <meta name="description" content="A private emotional check-in with music, small activities, and a gentle thought for the day.">
-  <link rel="stylesheet" href="style.css?v=20260824">
-  <script src="script.js?v=20260824" defer></script>
+  <link rel="stylesheet" href="style.css?v=20260824-2">
+  <script src="script.js?v=20260824-2" defer></script>
 </head>
 <body data-page="checkin">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -104,8 +104,16 @@
         <fieldset>
           <legend>Which kitten should respond?</legend>
           <div class="option-grid compact kitten-choice">
-            <label><input type="radio" name="kitten" value="normal" checked>Normal kitten</label>
-            <label><input type="radio" name="kitten" value="doctor">Doctor kitten</label>
+            <label class="kitten-option normal-option">
+              <input type="radio" name="kitten" value="normal" checked>
+              <span class="kitten-token" aria-hidden="true"></span>
+              <span>Normal kitten</span>
+            </label>
+            <label class="kitten-option doctor-option">
+              <input type="radio" name="kitten" value="doctor">
+              <span class="kitten-token" aria-hidden="true"></span>
+              <span>Doctor kitten</span>
+            </label>
           </div>
         </fieldset>
 

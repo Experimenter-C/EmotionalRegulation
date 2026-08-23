@@ -548,6 +548,52 @@ fieldset {
   accent-color: var(--rose-dark);
 }
 
+.kitten-option {
+  min-height: 4rem;
+}
+
+.kitten-token {
+  position: relative;
+  flex: 0 0 auto;
+  width: 2.2rem;
+  height: 2rem;
+  border-radius: 48% 48% 44% 44%;
+  background:
+    radial-gradient(circle at 36% 45%, #fff8ed 0 0.13rem, transparent 0.14rem),
+    radial-gradient(circle at 64% 45%, #fff8ed 0 0.13rem, transparent 0.14rem),
+    radial-gradient(circle at 50% 62%, #eaa2af 0 0.15rem, transparent 0.16rem),
+    #4d4149;
+}
+
+.kitten-token::before {
+  content: "";
+  position: absolute;
+  left: 0.2rem;
+  top: -0.42rem;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 0.14rem;
+  background: #4d4149;
+  box-shadow: 1rem 0 0 #4d4149;
+  transform: rotate(45deg);
+}
+
+.doctor-option .kitten-token::after {
+  content: "";
+  position: absolute;
+  left: 0.42rem;
+  top: -0.62rem;
+  z-index: 1;
+  width: 1.35rem;
+  height: 0.52rem;
+  border: 1px solid rgba(90, 74, 85, 0.16);
+  border-radius: 0.16rem 0.16rem 0.3rem 0.3rem;
+  background:
+    linear-gradient(90deg, transparent 44%, var(--rose-dark) 44% 56%, transparent 56%),
+    linear-gradient(0deg, transparent 38%, var(--rose-dark) 38% 55%, transparent 55%),
+    #ffffff;
+}
+
 .form-actions,
 .result-actions {
   display: flex;
