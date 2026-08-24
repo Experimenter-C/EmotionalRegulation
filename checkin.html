@@ -5,8 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Check In | Kittens Paradise</title>
   <meta name="description" content="A private emotional check-in with music, small activities, and a gentle thought for the day.">
-  <link rel="stylesheet" href="style.css?v=20260824-3">
-  <script src="script.js?v=20260824-3" defer></script>
+  <link rel="stylesheet" href="style.css?v=20260824-4">
+  <style>
+    [data-kitten-selector] .kitten-token {
+      display: none !important;
+    }
+
+    [data-kitten-selector] input[type="radio"] {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
+  <script src="script.js?v=20260824-4" defer></script>
 </head>
 <body data-page="checkin">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -103,7 +116,7 @@
 
         <fieldset>
           <legend>Which kitten should respond?</legend>
-          <div class="option-grid compact">
+          <div class="option-grid compact kitten-response-options" data-kitten-selector>
             <label>
               <input type="radio" name="kitten" value="normal" checked>
               <span>Normal kitten</span>
