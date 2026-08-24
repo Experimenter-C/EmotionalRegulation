@@ -548,6 +548,10 @@ fieldset {
   accent-color: var(--rose-dark);
 }
 
+.option-grid .kitten-token {
+  display: none !important;
+}
+
 .form-actions,
 .result-actions {
   display: flex;
