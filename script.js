@@ -23,8 +23,8 @@ const backgroundThemes = {
       { src: "Photos/backgrounds/IMG_1533-bg.jpg", position: "center top" },
       { src: "Photos/backgrounds/IMG_1552-bg.jpg", position: "center top" }
     ],
-    overlayStart: "rgba(255, 248, 237, 0.72)",
-    overlayEnd: "rgba(255, 250, 246, 0.84)"
+    overlayStart: "rgba(35, 27, 34, 0.44)",
+    overlayEnd: "rgba(25, 28, 32, 0.58)"
   },
   about: {
     photos: [
@@ -37,8 +37,8 @@ const backgroundThemes = {
       { src: "Photos/backgrounds/IMG_1533-bg.jpg", position: "center top" },
       { src: "Photos/backgrounds/IMG_1560-bg.jpg", position: "center top" }
     ],
-    overlayStart: "rgba(255, 248, 237, 0.78)",
-    overlayEnd: "rgba(255, 250, 246, 0.88)"
+    overlayStart: "rgba(35, 27, 34, 0.5)",
+    overlayEnd: "rgba(25, 28, 32, 0.62)"
   },
   neutral: {
     photos: [
@@ -53,8 +53,8 @@ const backgroundThemes = {
       { src: "Photos/backgrounds/IMG_1552-bg.jpg", position: "center top" },
       { src: "Photos/backgrounds/IMG_1557-bg.jpg", position: "center top" }
     ],
-    overlayStart: "rgba(255, 248, 237, 0.78)",
-    overlayEnd: "rgba(255, 250, 246, 0.9)"
+    overlayStart: "rgba(35, 27, 34, 0.5)",
+    overlayEnd: "rgba(25, 28, 32, 0.64)"
   },
   comforting: {
     photos: [
@@ -67,8 +67,8 @@ const backgroundThemes = {
       { src: "Photos/backgrounds/IMG_1554-bg.jpg", position: "center top" },
       { src: "Photos/backgrounds/IMG_1557-bg.jpg", position: "center top" }
     ],
-    overlayStart: "rgba(255, 248, 237, 0.82)",
-    overlayEnd: "rgba(255, 250, 246, 0.9)"
+    overlayStart: "rgba(35, 27, 34, 0.54)",
+    overlayEnd: "rgba(25, 28, 32, 0.66)"
   },
   calming: {
     photos: [
@@ -81,8 +81,8 @@ const backgroundThemes = {
       { src: "Photos/backgrounds/IMG_1531-bg.jpg", position: "center top" },
       { src: "Photos/backgrounds/IMG_1552-bg.jpg", position: "center top" }
     ],
-    overlayStart: "rgba(255, 248, 237, 0.78)",
-    overlayEnd: "rgba(246, 249, 250, 0.88)"
+    overlayStart: "rgba(35, 27, 34, 0.5)",
+    overlayEnd: "rgba(25, 28, 32, 0.64)"
   },
   hopeful: {
     photos: [
@@ -95,8 +95,8 @@ const backgroundThemes = {
       { src: "Photos/backgrounds/IMG_1553-bg.jpg", position: "center top" },
       { src: "Photos/backgrounds/IMG_1559-bg.jpg", position: "center top" }
     ],
-    overlayStart: "rgba(255, 248, 237, 0.7)",
-    overlayEnd: "rgba(255, 250, 246, 0.82)"
+    overlayStart: "rgba(35, 27, 34, 0.42)",
+    overlayEnd: "rgba(25, 28, 32, 0.56)"
   },
   energetic: {
     photos: [
@@ -109,8 +109,8 @@ const backgroundThemes = {
       { src: "Photos/backgrounds/IMG_1559-bg.jpg", position: "center top" },
       { src: "Photos/backgrounds/IMG_1529-bg.jpg", position: "center top" }
     ],
-    overlayStart: "rgba(255, 248, 237, 0.72)",
-    overlayEnd: "rgba(255, 250, 246, 0.84)"
+    overlayStart: "rgba(35, 27, 34, 0.44)",
+    overlayEnd: "rgba(25, 28, 32, 0.58)"
   },
   reflective: {
     photos: [
@@ -123,8 +123,8 @@ const backgroundThemes = {
       { src: "Photos/backgrounds/IMG_1560-bg.jpg", position: "center top" },
       { src: "Photos/backgrounds/IMG_1556-bg.jpg", position: "center top" }
     ],
-    overlayStart: "rgba(255, 248, 237, 0.8)",
-    overlayEnd: "rgba(255, 250, 246, 0.9)"
+    overlayStart: "rgba(35, 27, 34, 0.54)",
+    overlayEnd: "rgba(25, 28, 32, 0.68)"
   },
   creative: {
     photos: [
@@ -137,8 +137,8 @@ const backgroundThemes = {
       { src: "Photos/backgrounds/IMG_1558-bg.jpg", position: "center top" },
       { src: "Photos/backgrounds/IMG_1552-bg.jpg", position: "center top" }
     ],
-    overlayStart: "rgba(255, 248, 237, 0.74)",
-    overlayEnd: "rgba(255, 250, 246, 0.86)"
+    overlayStart: "rgba(35, 27, 34, 0.46)",
+    overlayEnd: "rgba(25, 28, 32, 0.6)"
   },
   driving: {
     photos: [
@@ -151,8 +151,8 @@ const backgroundThemes = {
       { src: "Photos/backgrounds/IMG_1531-bg.jpg", position: "center top" },
       { src: "Photos/backgrounds/IMG_1529-bg.jpg", position: "center top" }
     ],
-    overlayStart: "rgba(255, 248, 237, 0.76)",
-    overlayEnd: "rgba(246, 249, 250, 0.88)"
+    overlayStart: "rgba(35, 27, 34, 0.5)",
+    overlayEnd: "rgba(25, 28, 32, 0.64)"
   }
 };
 
@@ -162,54 +162,54 @@ const backgroundState = {
   mode: null
 };
 
-const collageThemes = {
+const supportingPhotoThemes = {
   neutral: [
-    photo("IMG_1530", 481, 720, "A quiet beach at sunset."),
-    photo("IMG_1533", 576, 720, "Soft white flowers in warm light."),
-    photo("IMG_1552", 324, 720, "Orange flowers by a window."),
-    photo("IMG_1553", 540, 720, "A small collection of colorful flowers.")
+    photo("IMG_1530", 601, 900, "A quiet beach at sunset."),
+    photo("IMG_1533", 720, 900, "Soft white flowers in warm light."),
+    photo("IMG_1552", 405, 900, "Orange flowers by a window."),
+    photo("IMG_1553", 675, 900, "A small collection of colorful flowers.")
   ],
   comforting: [
-    photo("IMG_1533", 576, 720, "Soft white flowers in warm light."),
+    photo("IMG_1533", 720, 900, "Soft white flowers in warm light."),
     photo("IMG_1554", 350, 622, "A deep red rose against a dark background."),
-    photo("IMG_1557", 325, 720, "White flowers growing in a small pot."),
-    photo("IMG_1556", 325, 720, "A bright pink rose close up.")
+    photo("IMG_1557", 406, 900, "White flowers growing in a small pot."),
+    photo("IMG_1556", 406, 900, "A bright pink rose close up.")
   ],
   calming: [
-    photo("IMG_1530", 481, 720, "A quiet beach at sunset."),
-    photo("IMG_1531", 404, 720, "Sunset light over ocean waves."),
-    photo("IMG_1533", 576, 720, "Soft white flowers in warm light."),
-    photo("IMG_1552", 324, 720, "Orange flowers by a window.")
+    photo("IMG_1530", 601, 900, "A quiet beach at sunset."),
+    photo("IMG_1531", 505, 900, "Sunset light over ocean waves."),
+    photo("IMG_1533", 720, 900, "Soft white flowers in warm light."),
+    photo("IMG_1552", 405, 900, "Orange flowers by a window.")
   ],
   hopeful: [
-    photo("IMG_1529", 514, 720, "Pink flowering trees beside water."),
+    photo("IMG_1529", 643, 900, "Pink flowering trees beside water."),
     photo("IMG_1532", 612, 408, "Two birds sitting among pink blossoms."),
     photo("IMG_1534", 512, 512, "Butterflies around bright wildflowers."),
-    photo("IMG_1553", 540, 720, "A small collection of colorful flowers.")
+    photo("IMG_1553", 675, 900, "A small collection of colorful flowers.")
   ],
   energetic: [
     photo("IMG_1534", 512, 512, "Butterflies around bright wildflowers."),
-    photo("IMG_1558", 325, 720, "Bright magenta flowers in a planter."),
-    photo("IMG_1559", 325, 720, "A vivid pink rose held near greenery."),
-    photo("IMG_1529", 514, 720, "Pink flowering trees beside water.")
+    photo("IMG_1558", 406, 900, "Bright magenta flowers in a planter."),
+    photo("IMG_1559", 406, 900, "A vivid pink rose held near greenery."),
+    photo("IMG_1529", 643, 900, "Pink flowering trees beside water.")
   ],
   reflective: [
-    photo("IMG_1531", 404, 720, "Sunset light over ocean waves."),
-    photo("IMG_1560", 325, 720, "Red balcony roses in soft daylight."),
-    photo("IMG_1556", 325, 720, "A bright pink rose close up."),
+    photo("IMG_1531", 505, 900, "Sunset light over ocean waves."),
+    photo("IMG_1560", 406, 900, "Red balcony roses in soft daylight."),
+    photo("IMG_1556", 406, 900, "A bright pink rose close up."),
     photo("IMG_1554", 350, 622, "A deep red rose against a dark background.")
   ],
   creative: [
-    photo("IMG_1553", 540, 720, "A small collection of colorful flowers."),
-    photo("IMG_1558", 325, 720, "Bright magenta flowers in a planter."),
+    photo("IMG_1553", 675, 900, "A small collection of colorful flowers."),
+    photo("IMG_1558", 406, 900, "Bright magenta flowers in a planter."),
     photo("IMG_1534", 512, 512, "Butterflies around bright wildflowers."),
-    photo("IMG_1552", 324, 720, "Orange flowers by a window.")
+    photo("IMG_1552", 405, 900, "Orange flowers by a window.")
   ],
   driving: [
-    photo("IMG_1530", 481, 720, "A quiet beach at sunset."),
-    photo("IMG_1531", 404, 720, "Sunset light over ocean waves."),
-    photo("IMG_1529", 514, 720, "Pink flowering trees beside water."),
-    photo("IMG_1552", 324, 720, "Orange flowers by a window.")
+    photo("IMG_1530", 601, 900, "A quiet beach at sunset."),
+    photo("IMG_1531", 505, 900, "Sunset light over ocean waves."),
+    photo("IMG_1529", 643, 900, "Pink flowering trees beside water."),
+    photo("IMG_1552", 405, 900, "Orange flowers by a window.")
   ]
 };
 
@@ -506,8 +506,8 @@ const kittenText = document.querySelector("#kitten-text");
 const kittenTitle = document.querySelector("#kitten-title");
 const kittenPortrait = document.querySelector("#kitten-portrait");
 const safetyNote = document.querySelector("#safety-note");
-const photoCollage = document.querySelector("#photo-collage");
-const photoCollageGrid = document.querySelector("#photo-collage-grid");
+const supportingPhoto = document.querySelector("#supporting-photo");
+const supportingPhotoImage = document.querySelector("#supporting-photo-image");
 let lastAnswers = null;
 
 if (document.body.dataset.page === "checkin") {
@@ -606,7 +606,7 @@ function renderRecommendations(answers) {
   reflectionText.textContent = randomFrom(reflections);
   renderKitten(answers.kitten);
   setPageBackground(chooseBackgroundTheme(answers, moodCategory));
-  renderPhotoCollage(answers, moodCategory, selectedActivities);
+  renderSupportingPhoto(answers, moodCategory, selectedActivities);
 
   safetyNote.classList.toggle("hidden", !needsSafetyNote(answers));
   document.querySelectorAll(".result-card").forEach((card) => {
@@ -646,7 +646,7 @@ function chooseBackgroundTheme(answers, fallbackCategory = chooseMoodCategory(an
   return fallbackCategory;
 }
 
-function chooseCollageTheme(answers, fallbackCategory, selectedActivities) {
+function chooseSupportingPhotoTheme(answers, fallbackCategory, selectedActivities) {
   const activityText = selectedActivities.join(" ").toLowerCase();
 
   if (activityText.includes("draw") || activityText.includes("sketch") || activityText.includes("colors")) {
@@ -665,31 +665,23 @@ function chooseCollageTheme(answers, fallbackCategory, selectedActivities) {
   return chooseBackgroundTheme(answers, fallbackCategory);
 }
 
-function renderPhotoCollage(answers, moodCategory, selectedActivities) {
-  if (!photoCollage || !photoCollageGrid) {
+function renderSupportingPhoto(answers, moodCategory, selectedActivities) {
+  if (!supportingPhoto || !supportingPhotoImage) {
     return;
   }
 
-  const collageTheme = chooseCollageTheme(answers, moodCategory, selectedActivities);
-  const pool = collageThemes[collageTheme] || collageThemes.neutral;
-  const count = window.matchMedia && window.matchMedia("(max-width: 560px)").matches ? 3 : 4;
-  const selectedPhotos = pickUnique(pool, Math.min(count, pool.length));
+  const photoTheme = chooseSupportingPhotoTheme(answers, moodCategory, selectedActivities);
+  const pool = supportingPhotoThemes[photoTheme] || supportingPhotoThemes.neutral;
+  const selectedPhoto = randomFrom(pool);
 
-  photoCollageGrid.innerHTML = "";
-  selectedPhotos.forEach((selectedPhoto) => {
-    const image = document.createElement("img");
-    image.src = selectedPhoto.src;
-    image.alt = selectedPhoto.alt;
-    image.width = selectedPhoto.width;
-    image.height = selectedPhoto.height;
-    image.loading = "lazy";
-    image.decoding = "async";
-    photoCollageGrid.appendChild(image);
-  });
+  supportingPhotoImage.src = selectedPhoto.src;
+  supportingPhotoImage.alt = selectedPhoto.alt;
+  supportingPhotoImage.width = selectedPhoto.width;
+  supportingPhotoImage.height = selectedPhoto.height;
 
-  photoCollage.classList.remove("hidden");
-  photoCollage.classList.remove("fade-in");
-  window.requestAnimationFrame(() => photoCollage.classList.add("fade-in"));
+  supportingPhoto.classList.remove("hidden");
+  supportingPhoto.classList.remove("fade-in");
+  window.requestAnimationFrame(() => supportingPhoto.classList.add("fade-in"));
 }
 
 function themeFromMoodValue(mood) {
@@ -785,7 +777,7 @@ function getBackgroundMode() {
 
 function photo(id, width, height, alt) {
   return {
-    src: `Photos/collage/${id}-collage.jpg`,
+    src: `Photos/supporting/${id}-support.jpg`,
     width,
     height,
     alt
@@ -872,9 +864,10 @@ function resetCheckin() {
   updateMoodDisplay();
   setPageBackground(themeFromMoodValue(Number(slider.value)), { force: true });
   results.classList.add("hidden");
-  if (photoCollage && photoCollageGrid) {
-    photoCollage.classList.add("hidden");
-    photoCollageGrid.innerHTML = "";
+  if (supportingPhoto && supportingPhotoImage) {
+    supportingPhoto.classList.add("hidden");
+    supportingPhotoImage.removeAttribute("src");
+    supportingPhotoImage.alt = "";
   }
   form.scrollIntoView({ behavior: "smooth", block: "start" });
 }

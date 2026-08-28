@@ -14,8 +14,8 @@
   --radius: 8px;
   --page-photo: none;
   --page-photo-position: center;
-  --photo-overlay-start: rgba(255, 248, 237, 0.76);
-  --photo-overlay-end: rgba(255, 250, 246, 0.88);
+  --photo-overlay-start: rgba(35, 27, 34, 0.5);
+  --photo-overlay-end: rgba(25, 28, 32, 0.64);
 }
 
 * {
@@ -35,11 +35,11 @@ body {
 }
 
 body.has-photo-background {
-  background-color: var(--cream);
+  background-color: #201b21;
   background-image:
     linear-gradient(135deg, var(--photo-overlay-start), var(--photo-overlay-end)),
-    radial-gradient(circle at 12% 16%, rgba(201, 183, 232, 0.25), transparent 25rem),
-    radial-gradient(circle at 88% 8%, rgba(184, 216, 230, 0.28), transparent 22rem),
+    radial-gradient(circle at 12% 16%, rgba(201, 183, 232, 0.16), transparent 25rem),
+    radial-gradient(circle at 88% 8%, rgba(184, 216, 230, 0.16), transparent 22rem),
     var(--page-photo);
   background-position:
     center,
@@ -66,7 +66,7 @@ body::before {
 }
 
 body.has-photo-background::before {
-  color: rgba(156, 79, 102, 0.1);
+  color: rgba(255, 248, 237, 0.1);
 }
 
 a {
@@ -99,7 +99,7 @@ a {
 }
 
 body.has-photo-background .site-header {
-  background: rgba(255, 248, 237, 0.88);
+  background: rgba(255, 248, 237, 0.92);
 }
 
 .nav {
@@ -223,8 +223,25 @@ main {
 
 body.has-photo-background .hero-copy,
 body.has-photo-background .about-hero,
-body.has-photo-background .checkin-intro {
-  text-shadow: 0 1px 18px rgba(255, 255, 255, 0.86);
+body.has-photo-background .checkin-intro,
+body.has-photo-background .section-heading {
+  color: #fffaf6;
+  text-shadow: 0 2px 22px rgba(0, 0, 0, 0.48);
+}
+
+body.has-photo-background .hero-copy .eyebrow,
+body.has-photo-background .about-hero .eyebrow,
+body.has-photo-background .checkin-intro .eyebrow,
+body.has-photo-background .section-heading .eyebrow {
+  color: #ffdce7;
+}
+
+body.has-photo-background .subtitle,
+body.has-photo-background .warm-note,
+body.has-photo-background .about-hero p,
+body.has-photo-background .checkin-intro p,
+body.has-photo-background .section-heading h2 {
+  color: #fffaf6;
 }
 
 .button {
@@ -440,16 +457,16 @@ body.has-photo-background .checkin-intro {
 body.has-photo-background .comfort-card,
 body.has-photo-background .result-card,
 body.has-photo-background .about-card,
-body.has-photo-background .photo-collage,
+body.has-photo-background .supporting-photo,
 body.has-photo-background fieldset,
 body.has-photo-background .slider-card,
 body.has-photo-background .safety-note {
-  background-color: rgba(255, 255, 255, 0.82);
+  background-color: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(12px);
 }
 
 body.has-photo-background .slider-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(248, 226, 207, 0.72));
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.93), rgba(248, 226, 207, 0.82));
 }
 
 .comfort-card {
@@ -668,9 +685,9 @@ body.has-photo-background .option-grid label {
   padding: 1.2rem;
 }
 
-.photo-collage {
+.supporting-photo {
   display: grid;
-  grid-template-columns: minmax(12rem, 0.55fr) minmax(0, 1.45fr);
+  grid-template-columns: minmax(12rem, 0.58fr) minmax(0, 1.42fr);
   align-items: center;
   gap: 1rem;
   margin-top: 1rem;
@@ -681,30 +698,20 @@ body.has-photo-background .option-grid label {
   box-shadow: var(--shadow);
 }
 
-.photo-collage h3 {
+.supporting-photo h3 {
   margin: 0;
   font-size: 1.2rem;
   line-height: 1.15;
 }
 
-.photo-collage-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.55rem;
-}
-
-.photo-collage-grid img {
+.supporting-photo img {
   display: block;
   width: 100%;
-  height: clamp(8rem, 16vw, 12rem);
+  height: clamp(14rem, 28vw, 22rem);
   object-fit: contain;
   border-radius: var(--radius);
   background: rgba(255, 248, 237, 0.52);
   box-shadow: 0 10px 22px rgba(93, 76, 74, 0.12);
-}
-
-.photo-collage-grid img:nth-child(even) {
-  margin-top: 1rem;
 }
 
 .clean-list {
@@ -968,6 +975,11 @@ body.has-photo-background .kitten-card {
   text-shadow: 0 1px 14px rgba(255, 255, 255, 0.85);
 }
 
+body.has-photo-background .footer {
+  color: rgba(255, 250, 246, 0.9);
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.48);
+}
+
 .reveal {
   animation: rise 0.55s ease both;
 }
@@ -980,7 +992,7 @@ body.has-photo-background .kitten-card {
   animation: rise 0.45s ease both;
 }
 
-.photo-collage.fade-in {
+.supporting-photo.fade-in {
   animation: rise 0.45s ease both;
 }
 
@@ -1018,7 +1030,7 @@ body.has-photo-background .kitten-card {
       cover,
       34rem 34rem,
       30rem 30rem,
-      min(150vw, 48rem) auto;
+      auto max(100vh, 46rem);
   }
 
   .home-hero,
@@ -1045,17 +1057,13 @@ body.has-photo-background .kitten-card {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .photo-collage {
+  .supporting-photo {
     grid-template-columns: 1fr;
     align-items: start;
   }
 
-  .photo-collage-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .photo-collage-grid img {
-    height: clamp(7.5rem, 24vw, 10.5rem);
+  .supporting-photo img {
+    height: clamp(15rem, 46vw, 22rem);
   }
 }
 
@@ -1070,7 +1078,7 @@ body.has-photo-background .kitten-card {
       cover,
       28rem 28rem,
       26rem 26rem,
-      min(170vw, 40rem) auto;
+      auto max(100vh, 42rem);
   }
 
   .nav {
@@ -1109,21 +1117,12 @@ body.has-photo-background .kitten-card {
     grid-template-columns: 1fr;
   }
 
-  .photo-collage {
+  .supporting-photo {
     padding: 0.85rem;
   }
 
-  .photo-collage-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.5rem;
-  }
-
-  .photo-collage-grid img {
-    height: clamp(7rem, 32vw, 9.5rem);
-  }
-
-  .photo-collage-grid img:nth-child(even) {
-    margin-top: 0;
+  .supporting-photo img {
+    height: clamp(14rem, 68vw, 20rem);
   }
 
   .slider-summary {
