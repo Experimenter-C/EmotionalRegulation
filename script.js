@@ -398,6 +398,59 @@ const songPools = {
   }
 };
 
+const expandedSongCatalog = [
+  song("Perfect", "Ed Sheeran", ["calming", "hopeful", "romantic", "happy"], "low", "romantic"),
+  song("A Thousand Years", "Christina Perri", ["calming", "reflective", "romantic", "hopeful"], "low", "emotional"),
+  song("Love Me Like You Do", "Ellie Goulding", ["energetic", "hopeful", "romantic", "happy"], "medium", "romantic"),
+  song("You Are The Reason", "Calum Scott", ["comforting", "reflective", "romantic", "healing"], "low", "emotional"),
+  song("Pyaar Ke Pal", "KK", ["comforting", "reflective", "nostalgic", "hopeful"], "medium", "nostalgic"),
+  song("Yaaron", "KK", ["hopeful", "energetic", "nostalgic", "happy"], "medium", "friendship"),
+  song("Piya Basanti", "Ustad Sultan Khan, K. S. Chithra", ["calming", "reflective", "romantic"], "low", "gentle"),
+  song("Tere Aane Ki Jab Khabar Mehke", "Jagjit Singh", ["calming", "reflective", "romantic", "nostalgic"], "low", "ghazal"),
+  song("Agar Hum Kahen Aur Woh Muskura Den", "Jagjit Singh, Chitra Singh", ["calming", "reflective", "romantic"], "low", "ghazal"),
+  song("Kahin Door Jab Din Dhal Jaye", "Jagjit Singh, Deepak Pandit, Salil Chowdhury", ["reflective", "comforting", "nostalgic", "lonely"], "low", "wistful"),
+  song("Namah Shivaya", "Krishna Das", ["calming", "reflective", "spiritual", "devotional"], "low", "devotional"),
+  song("Fix You", "Coldplay", ["comforting", "hopeful", "healing", "sad"], "medium", "healing"),
+  song("It's My Life", "Bon Jovi", ["energetic", "hopeful", "motivated"], "high", "confident"),
+  song("(Everything I Do) I Do It For You", "Bryan Adams", ["calming", "romantic", "hopeful"], "medium", "romantic"),
+  song("Have You Ever Really Loved A Woman?", "Bryan Adams", ["calming", "romantic", "reflective"], "low", "romantic"),
+  song("Memories", "Maroon 5", ["reflective", "nostalgic", "comforting"], "medium", "nostalgic"),
+  song("Shiv Kailash (Live in Mumbai)", "Rishab Rikhiram Sharma", ["calming", "reflective", "spiritual", "devotional"], "low", "spiritual"),
+  song("Dil Gira Dafatan", "Ash King, A. R. Rahman, Prasoon Joshi", ["creative", "calming", "reflective", "romantic"], "medium", "dreamy"),
+  song("Tu Bin Bataye", "A. R. Rahman, Madhushree, Naresh Iyer", ["calming", "comforting", "reflective", "romantic"], "low", "gentle"),
+  song("Rehna Tu", "A. R. Rahman, Prasoon Joshi", ["calming", "creative", "romantic", "reflective"], "medium", "warm"),
+  song("Hairat", "Vishal-Shekhar, Lucky Ali", ["driving", "hopeful", "energetic", "creative"], "medium", "open"),
+  song("Ishaqzaade", "Amit Trivedi, Javed Ali, Shreya Ghoshal, Kausar Munir", ["energetic", "romantic", "creative"], "high", "intense"),
+  song("Yeh Dooriyan", "Pritam, Mohit Chauhan", ["reflective", "comforting", "lonely", "romantic"], "low", "yearning"),
+  song("Yaariyaan - Male", "Pritam, Irshad Kamil", ["comforting", "reflective", "nostalgic", "lonely"], "low", "friendship"),
+  song("Aur Ho", "Mohit Chauhan, Alma Ferovic", ["reflective", "emotional", "romantic"], "medium", "intense"),
+  song("Hard Sun", "Eddie Vedder", ["driving", "hopeful", "motivated", "energetic"], "high", "expansive"),
+  song("Ranjish Hi Sahi", "Ali Sethi", ["reflective", "emotional", "lonely", "sad"], "low", "ghazal"),
+  song("Shiv Tandav Stotram", "Shankar Mahadevan", ["energetic", "spiritual", "devotional", "motivated"], "high", "devotional"),
+  song("Tumhin Mere Mandir", "Lata Mangeshkar, Ravi", ["calming", "spiritual", "devotional", "reflective"], "low", "devotional"),
+  song("Unstoppable", "Sia", ["energetic", "hopeful", "motivated"], "high", "confident"),
+  song("Tum Prem Ho - Reprise", "Mohit Lalwani, Bharat Kamal", ["calming", "spiritual", "devotional", "romantic"], "low", "devotional"),
+  song("Tum Ho", "Mohit Chauhan, Suzanne D'Mello", ["calming", "reflective", "romantic", "comforting"], "low", "romantic"),
+  song("Humnava", "Mithoon, Papon, Sayeed Quadri", ["comforting", "reflective", "romantic", "healing"], "low", "emotional"),
+  song("Sapna Jahan", "Ajay-Atul, Sonu Nigam, Neeti Mohan", ["calming", "hopeful", "romantic", "comforting"], "low", "warm"),
+  song("Bawra Mann", "Swanand Kirkire", ["calming", "reflective", "creative", "hopeful"], "low", "gentle"),
+  song("Humraah", "Sachet Tandon, Kunaal Vermaa, The Fusion Project", ["hopeful", "driving", "romantic", "energetic"], "medium", "open"),
+  song("OM", "Brodha V", ["energetic", "spiritual", "motivated", "creative"], "high", "focused"),
+  song("He Ram He Ram", "Jagjit Singh", ["calming", "spiritual", "devotional", "comforting"], "low", "devotional"),
+  song("Hanuman Chalisa (Lofi)", "Rasraj Ji Maharaj, Baljeet Singh Chahal", ["calming", "spiritual", "devotional", "comforting"], "low", "devotional"),
+  song("Shiv Kailasho Ke Vasi", "Hansraj Raghuwanshi", ["spiritual", "devotional", "hopeful", "energetic"], "medium", "devotional"),
+  song("Alone, Pt. II", "Alan Walker, Ava Max", ["energetic", "hopeful", "lonely", "motivated"], "high", "uplifting"),
+  song("Ishq", "Ali Sethi", ["calming", "reflective", "romantic"], "low", "ghazal"),
+  song("Jeev Rangla", "Ajay-Atul, Hariharan, Shreya Ghoshal", ["calming", "romantic", "reflective", "marathi"], "low", "romantic"),
+  song("Yad Lagla", "Ajay Gogavale", ["calming", "romantic", "reflective", "marathi"], "medium", "romantic"),
+  song("Lallati Bhandar - Ambabaicha Gondhal", "Ajay-Atul, Ajay Gogavale", ["energetic", "spiritual", "devotional", "marathi"], "high", "devotional"),
+  song("Natarang Ubha", "Ajay-Atul", ["energetic", "creative", "motivated", "marathi"], "high", "dramatic"),
+  song("Dewak Kalji Re", "Vijay Narayan Gavande, Ajay Gogavale, Guru Thakur", ["comforting", "calming", "reflective", "marathi"], "low", "healing"),
+  song("Omkar Swarupa", "Suresh Wadkar", ["calming", "spiritual", "devotional", "peaceful", "marathi"], "low", "devotional"),
+  song("Kalya Matit Matit", "Suresh Wadkar, Anuradha Paudwal", ["reflective", "nostalgic", "calming", "marathi"], "low", "earthy"),
+  song("Apocalypse", "Cigarettes After Sex", ["reflective", "calming", "lonely", "romantic"], "low", "dreamy")
+];
+
 const activities = {
   veryLow: [
     "Listen to three songs with your eyes closed.",
@@ -598,7 +651,7 @@ function regenerate(variation) {
 
 function renderRecommendations(answers) {
   const moodCategory = chooseMoodCategory(answers);
-  const selectedSongs = buildSongSet(moodCategory);
+  const selectedSongs = buildSongSet(moodCategory, answers);
   const selectedActivities = buildActivities(answers);
 
   fillList(musicList, selectedSongs);
@@ -800,13 +853,61 @@ function writeSessionValue(key, value) {
   }
 }
 
-function buildSongSet(category) {
+function buildSongSet(category, answers = {}) {
   const pool = songPools[category] || songPools.calming;
-  return [
+  const legacySongs = [
     ...pickUnique(pool.english, 2),
     ...pickUnique(pool.hindi, 2),
     ...pickUnique(pool.marathi, 2)
   ];
+  const matchingNewSongs = expandedSongCatalog
+    .filter((candidate) => candidate.moods.includes(category))
+    .filter((candidate) => isSupportiveForMood(candidate, answers))
+    .map(formatSong);
+  const selectedNewSongs = pickUnique(matchingNewSongs, Math.min(2, matchingNewSongs.length));
+  const selectedLegacySongs = pickUnique(legacySongs, 6 - selectedNewSongs.length);
+
+  return shuffleUnique([
+    ...selectedLegacySongs,
+    ...selectedNewSongs,
+    ...legacySongs,
+    ...matchingNewSongs
+  ]).slice(0, 6);
+}
+
+function isSupportiveForMood(candidate, answers) {
+  const vulnerableMood = Number(answers.mood) <= 3 || ["sad", "lonely", "anxious"].includes(answers.feeling);
+  if (!vulnerableMood) {
+    return true;
+  }
+
+  if (candidate.emotionalTone === "intense") {
+    return false;
+  }
+
+  if (candidate.moods.includes("sad") && !candidate.moods.some((mood) => ["comforting", "healing", "hopeful"].includes(mood))) {
+    return false;
+  }
+
+  return true;
+}
+
+function song(title, artist, moods, energy, emotionalTone) {
+  return {
+    title,
+    artist,
+    moods,
+    energy,
+    emotionalTone
+  };
+}
+
+function formatSong({ title, artist }) {
+  return `${title} — ${artist}`;
+}
+
+function shuffleUnique(items) {
+  return pickUnique([...new Set(items)], items.length);
 }
 
 function buildActivities(answers) {
