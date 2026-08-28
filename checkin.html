@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Check In | Kittens Paradise</title>
   <meta name="description" content="A private emotional check-in with music, small activities, and a gentle thought for the day.">
-  <link rel="stylesheet" href="style.css?v=20260828-photos">
+  <link rel="stylesheet" href="style.css?v=20260828-collage">
   <style>
     [data-kitten-selector] .kitten-token {
       display: none !important;
@@ -19,7 +19,7 @@
       pointer-events: none;
     }
   </style>
-  <script src="script.js?v=20260828-photos" defer></script>
+  <script src="script.js?v=20260828-collage" defer></script>
 </head>
 <body data-page="checkin">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -191,6 +191,14 @@
           <p id="kitten-text"></p>
         </article>
       </div>
+
+      <aside id="photo-collage" class="photo-collage hidden" aria-labelledby="photo-collage-title">
+        <div>
+          <p class="eyebrow">A little visual softness</p>
+          <h3 id="photo-collage-title">Something gentle to look at</h3>
+        </div>
+        <div id="photo-collage-grid" class="photo-collage-grid"></div>
+      </aside>
 
       <div class="result-actions" aria-label="Regenerate recommendations">
         <button class="button soft-button" type="button" data-variation="calmer">Something calmer</button>

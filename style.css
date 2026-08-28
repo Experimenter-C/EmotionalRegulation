@@ -440,6 +440,7 @@ body.has-photo-background .checkin-intro {
 body.has-photo-background .comfort-card,
 body.has-photo-background .result-card,
 body.has-photo-background .about-card,
+body.has-photo-background .photo-collage,
 body.has-photo-background fieldset,
 body.has-photo-background .slider-card,
 body.has-photo-background .safety-note {
@@ -665,6 +666,45 @@ body.has-photo-background .option-grid label {
 .result-card,
 .about-card {
   padding: 1.2rem;
+}
+
+.photo-collage {
+  display: grid;
+  grid-template-columns: minmax(12rem, 0.55fr) minmax(0, 1.45fr);
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+
+.photo-collage h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.15;
+}
+
+.photo-collage-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.photo-collage-grid img {
+  display: block;
+  width: 100%;
+  height: clamp(8rem, 16vw, 12rem);
+  object-fit: contain;
+  border-radius: var(--radius);
+  background: rgba(255, 248, 237, 0.52);
+  box-shadow: 0 10px 22px rgba(93, 76, 74, 0.12);
+}
+
+.photo-collage-grid img:nth-child(even) {
+  margin-top: 1rem;
 }
 
 .clean-list {
@@ -940,6 +980,10 @@ body.has-photo-background .kitten-card {
   animation: rise 0.45s ease both;
 }
 
+.photo-collage.fade-in {
+  animation: rise 0.45s ease both;
+}
+
 @keyframes rise {
   from {
     opacity: 0;
@@ -965,6 +1009,16 @@ body.has-photo-background .kitten-card {
 @media (max-width: 850px) {
   body.has-photo-background {
     background-attachment: scroll;
+    background-position:
+      center,
+      left -8rem top -4rem,
+      right -8rem top 1rem,
+      var(--page-photo-position);
+    background-size:
+      cover,
+      34rem 34rem,
+      30rem 30rem,
+      min(150vw, 48rem) auto;
   }
 
   .home-hero,
@@ -990,9 +1044,35 @@ body.has-photo-background .kitten-card {
   .option-grid.compact {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .photo-collage {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .photo-collage-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .photo-collage-grid img {
+    height: clamp(7.5rem, 24vw, 10.5rem);
+  }
 }
 
 @media (max-width: 560px) {
+  body.has-photo-background {
+    background-position:
+      center,
+      left -11rem top -5rem,
+      right -10rem top 0,
+      var(--page-photo-position);
+    background-size:
+      cover,
+      28rem 28rem,
+      26rem 26rem,
+      min(170vw, 40rem) auto;
+  }
+
   .nav {
     align-items: flex-start;
     flex-direction: column;
@@ -1027,6 +1107,23 @@ body.has-photo-background .kitten-card {
   .option-grid,
   .option-grid.compact {
     grid-template-columns: 1fr;
+  }
+
+  .photo-collage {
+    padding: 0.85rem;
+  }
+
+  .photo-collage-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+
+  .photo-collage-grid img {
+    height: clamp(7rem, 32vw, 9.5rem);
+  }
+
+  .photo-collage-grid img:nth-child(even) {
+    margin-top: 0;
   }
 
   .slider-summary {

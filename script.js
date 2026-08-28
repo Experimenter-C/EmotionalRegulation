@@ -18,6 +18,11 @@ const backgroundThemes = {
       { src: "Photos/backgrounds/IMG_1532-bg.jpg", position: "center" },
       { src: "Photos/backgrounds/IMG_1534-bg.jpg", position: "center" }
     ],
+    mobilePhotos: [
+      { src: "Photos/backgrounds/IMG_1529-bg.jpg", position: "center top" },
+      { src: "Photos/backgrounds/IMG_1533-bg.jpg", position: "center top" },
+      { src: "Photos/backgrounds/IMG_1552-bg.jpg", position: "center top" }
+    ],
     overlayStart: "rgba(255, 248, 237, 0.72)",
     overlayEnd: "rgba(255, 250, 246, 0.84)"
   },
@@ -26,6 +31,11 @@ const backgroundThemes = {
       { src: "Photos/backgrounds/IMG_1530-bg.jpg", position: "center 58%" },
       { src: "Photos/backgrounds/IMG_1533-bg.jpg", position: "center 45%" },
       { src: "Photos/backgrounds/IMG_1560-bg.jpg", position: "center 45%" }
+    ],
+    mobilePhotos: [
+      { src: "Photos/backgrounds/IMG_1530-bg.jpg", position: "center top" },
+      { src: "Photos/backgrounds/IMG_1533-bg.jpg", position: "center top" },
+      { src: "Photos/backgrounds/IMG_1560-bg.jpg", position: "center top" }
     ],
     overlayStart: "rgba(255, 248, 237, 0.78)",
     overlayEnd: "rgba(255, 250, 246, 0.88)"
@@ -37,6 +47,12 @@ const backgroundThemes = {
       { src: "Photos/backgrounds/IMG_1552-bg.jpg", position: "center 42%" },
       { src: "Photos/backgrounds/IMG_1557-bg.jpg", position: "center 42%" }
     ],
+    mobilePhotos: [
+      { src: "Photos/backgrounds/IMG_1530-bg.jpg", position: "center top" },
+      { src: "Photos/backgrounds/IMG_1533-bg.jpg", position: "center top" },
+      { src: "Photos/backgrounds/IMG_1552-bg.jpg", position: "center top" },
+      { src: "Photos/backgrounds/IMG_1557-bg.jpg", position: "center top" }
+    ],
     overlayStart: "rgba(255, 248, 237, 0.78)",
     overlayEnd: "rgba(255, 250, 246, 0.9)"
   },
@@ -45,6 +61,11 @@ const backgroundThemes = {
       { src: "Photos/backgrounds/IMG_1533-bg.jpg", position: "center 45%" },
       { src: "Photos/backgrounds/IMG_1554-bg.jpg", position: "center 38%" },
       { src: "Photos/backgrounds/IMG_1557-bg.jpg", position: "center 42%" }
+    ],
+    mobilePhotos: [
+      { src: "Photos/backgrounds/IMG_1533-bg.jpg", position: "center top" },
+      { src: "Photos/backgrounds/IMG_1554-bg.jpg", position: "center top" },
+      { src: "Photos/backgrounds/IMG_1557-bg.jpg", position: "center top" }
     ],
     overlayStart: "rgba(255, 248, 237, 0.82)",
     overlayEnd: "rgba(255, 250, 246, 0.9)"
@@ -55,6 +76,11 @@ const backgroundThemes = {
       { src: "Photos/backgrounds/IMG_1531-bg.jpg", position: "center 50%" },
       { src: "Photos/backgrounds/IMG_1552-bg.jpg", position: "center 38%" }
     ],
+    mobilePhotos: [
+      { src: "Photos/backgrounds/IMG_1530-bg.jpg", position: "center top" },
+      { src: "Photos/backgrounds/IMG_1531-bg.jpg", position: "center top" },
+      { src: "Photos/backgrounds/IMG_1552-bg.jpg", position: "center top" }
+    ],
     overlayStart: "rgba(255, 248, 237, 0.78)",
     overlayEnd: "rgba(246, 249, 250, 0.88)"
   },
@@ -63,6 +89,11 @@ const backgroundThemes = {
       { src: "Photos/backgrounds/IMG_1529-bg.jpg", position: "center 42%" },
       { src: "Photos/backgrounds/IMG_1532-bg.jpg", position: "center" },
       { src: "Photos/backgrounds/IMG_1534-bg.jpg", position: "center" }
+    ],
+    mobilePhotos: [
+      { src: "Photos/backgrounds/IMG_1529-bg.jpg", position: "center top" },
+      { src: "Photos/backgrounds/IMG_1553-bg.jpg", position: "center top" },
+      { src: "Photos/backgrounds/IMG_1559-bg.jpg", position: "center top" }
     ],
     overlayStart: "rgba(255, 248, 237, 0.7)",
     overlayEnd: "rgba(255, 250, 246, 0.82)"
@@ -73,6 +104,11 @@ const backgroundThemes = {
       { src: "Photos/backgrounds/IMG_1558-bg.jpg", position: "center 40%" },
       { src: "Photos/backgrounds/IMG_1559-bg.jpg", position: "center 38%" }
     ],
+    mobilePhotos: [
+      { src: "Photos/backgrounds/IMG_1558-bg.jpg", position: "center top" },
+      { src: "Photos/backgrounds/IMG_1559-bg.jpg", position: "center top" },
+      { src: "Photos/backgrounds/IMG_1529-bg.jpg", position: "center top" }
+    ],
     overlayStart: "rgba(255, 248, 237, 0.72)",
     overlayEnd: "rgba(255, 250, 246, 0.84)"
   },
@@ -81,6 +117,11 @@ const backgroundThemes = {
       { src: "Photos/backgrounds/IMG_1531-bg.jpg", position: "center 48%" },
       { src: "Photos/backgrounds/IMG_1560-bg.jpg", position: "center 40%" },
       { src: "Photos/backgrounds/IMG_1556-bg.jpg", position: "center 38%" }
+    ],
+    mobilePhotos: [
+      { src: "Photos/backgrounds/IMG_1531-bg.jpg", position: "center top" },
+      { src: "Photos/backgrounds/IMG_1560-bg.jpg", position: "center top" },
+      { src: "Photos/backgrounds/IMG_1556-bg.jpg", position: "center top" }
     ],
     overlayStart: "rgba(255, 248, 237, 0.8)",
     overlayEnd: "rgba(255, 250, 246, 0.9)"
@@ -91,6 +132,11 @@ const backgroundThemes = {
       { src: "Photos/backgrounds/IMG_1558-bg.jpg", position: "center 40%" },
       { src: "Photos/backgrounds/IMG_1534-bg.jpg", position: "center" }
     ],
+    mobilePhotos: [
+      { src: "Photos/backgrounds/IMG_1553-bg.jpg", position: "center top" },
+      { src: "Photos/backgrounds/IMG_1558-bg.jpg", position: "center top" },
+      { src: "Photos/backgrounds/IMG_1552-bg.jpg", position: "center top" }
+    ],
     overlayStart: "rgba(255, 248, 237, 0.74)",
     overlayEnd: "rgba(255, 250, 246, 0.86)"
   },
@@ -100,6 +146,11 @@ const backgroundThemes = {
       { src: "Photos/backgrounds/IMG_1531-bg.jpg", position: "center 48%" },
       { src: "Photos/backgrounds/IMG_1529-bg.jpg", position: "center 42%" }
     ],
+    mobilePhotos: [
+      { src: "Photos/backgrounds/IMG_1530-bg.jpg", position: "center top" },
+      { src: "Photos/backgrounds/IMG_1531-bg.jpg", position: "center top" },
+      { src: "Photos/backgrounds/IMG_1529-bg.jpg", position: "center top" }
+    ],
     overlayStart: "rgba(255, 248, 237, 0.76)",
     overlayEnd: "rgba(246, 249, 250, 0.88)"
   }
@@ -107,7 +158,59 @@ const backgroundThemes = {
 
 const backgroundState = {
   theme: null,
-  src: null
+  src: null,
+  mode: null
+};
+
+const collageThemes = {
+  neutral: [
+    photo("IMG_1530", 481, 720, "A quiet beach at sunset."),
+    photo("IMG_1533", 576, 720, "Soft white flowers in warm light."),
+    photo("IMG_1552", 324, 720, "Orange flowers by a window."),
+    photo("IMG_1553", 540, 720, "A small collection of colorful flowers.")
+  ],
+  comforting: [
+    photo("IMG_1533", 576, 720, "Soft white flowers in warm light."),
+    photo("IMG_1554", 350, 622, "A deep red rose against a dark background."),
+    photo("IMG_1557", 325, 720, "White flowers growing in a small pot."),
+    photo("IMG_1556", 325, 720, "A bright pink rose close up.")
+  ],
+  calming: [
+    photo("IMG_1530", 481, 720, "A quiet beach at sunset."),
+    photo("IMG_1531", 404, 720, "Sunset light over ocean waves."),
+    photo("IMG_1533", 576, 720, "Soft white flowers in warm light."),
+    photo("IMG_1552", 324, 720, "Orange flowers by a window.")
+  ],
+  hopeful: [
+    photo("IMG_1529", 514, 720, "Pink flowering trees beside water."),
+    photo("IMG_1532", 612, 408, "Two birds sitting among pink blossoms."),
+    photo("IMG_1534", 512, 512, "Butterflies around bright wildflowers."),
+    photo("IMG_1553", 540, 720, "A small collection of colorful flowers.")
+  ],
+  energetic: [
+    photo("IMG_1534", 512, 512, "Butterflies around bright wildflowers."),
+    photo("IMG_1558", 325, 720, "Bright magenta flowers in a planter."),
+    photo("IMG_1559", 325, 720, "A vivid pink rose held near greenery."),
+    photo("IMG_1529", 514, 720, "Pink flowering trees beside water.")
+  ],
+  reflective: [
+    photo("IMG_1531", 404, 720, "Sunset light over ocean waves."),
+    photo("IMG_1560", 325, 720, "Red balcony roses in soft daylight."),
+    photo("IMG_1556", 325, 720, "A bright pink rose close up."),
+    photo("IMG_1554", 350, 622, "A deep red rose against a dark background.")
+  ],
+  creative: [
+    photo("IMG_1553", 540, 720, "A small collection of colorful flowers."),
+    photo("IMG_1558", 325, 720, "Bright magenta flowers in a planter."),
+    photo("IMG_1534", 512, 512, "Butterflies around bright wildflowers."),
+    photo("IMG_1552", 324, 720, "Orange flowers by a window.")
+  ],
+  driving: [
+    photo("IMG_1530", 481, 720, "A quiet beach at sunset."),
+    photo("IMG_1531", 404, 720, "Sunset light over ocean waves."),
+    photo("IMG_1529", 514, 720, "Pink flowering trees beside water."),
+    photo("IMG_1552", 324, 720, "Orange flowers by a window.")
+  ]
 };
 
 const songPools = {
@@ -403,6 +506,8 @@ const kittenText = document.querySelector("#kitten-text");
 const kittenTitle = document.querySelector("#kitten-title");
 const kittenPortrait = document.querySelector("#kitten-portrait");
 const safetyNote = document.querySelector("#safety-note");
+const photoCollage = document.querySelector("#photo-collage");
+const photoCollageGrid = document.querySelector("#photo-collage-grid");
 let lastAnswers = null;
 
 if (document.body.dataset.page === "checkin") {
@@ -425,6 +530,7 @@ if (document.body.dataset.page === "checkin") {
 } else {
   setPageBackground(document.body.dataset.page || "neutral", { force: true });
 }
+bindResponsiveBackground();
 
 function updateMoodDisplay(shouldStore = true) {
   const mood = Number(slider.value);
@@ -500,6 +606,7 @@ function renderRecommendations(answers) {
   reflectionText.textContent = randomFrom(reflections);
   renderKitten(answers.kitten);
   setPageBackground(chooseBackgroundTheme(answers, moodCategory));
+  renderPhotoCollage(answers, moodCategory, selectedActivities);
 
   safetyNote.classList.toggle("hidden", !needsSafetyNote(answers));
   document.querySelectorAll(".result-card").forEach((card) => {
@@ -539,6 +646,52 @@ function chooseBackgroundTheme(answers, fallbackCategory = chooseMoodCategory(an
   return fallbackCategory;
 }
 
+function chooseCollageTheme(answers, fallbackCategory, selectedActivities) {
+  const activityText = selectedActivities.join(" ").toLowerCase();
+
+  if (activityText.includes("draw") || activityText.includes("sketch") || activityText.includes("colors")) {
+    return "creative";
+  }
+  if (activityText.includes("dance") || activityText.includes("brisk") || activityText.includes("exercise")) {
+    return "energetic";
+  }
+  if (activityText.includes("drive") || activityText.includes("road") || activityText.includes("outside") || activityText.includes("trees")) {
+    return "driving";
+  }
+  if (activityText.includes("tea") || activityText.includes("shower") || activityText.includes("rest")) {
+    return "comforting";
+  }
+
+  return chooseBackgroundTheme(answers, fallbackCategory);
+}
+
+function renderPhotoCollage(answers, moodCategory, selectedActivities) {
+  if (!photoCollage || !photoCollageGrid) {
+    return;
+  }
+
+  const collageTheme = chooseCollageTheme(answers, moodCategory, selectedActivities);
+  const pool = collageThemes[collageTheme] || collageThemes.neutral;
+  const count = window.matchMedia && window.matchMedia("(max-width: 560px)").matches ? 3 : 4;
+  const selectedPhotos = pickUnique(pool, Math.min(count, pool.length));
+
+  photoCollageGrid.innerHTML = "";
+  selectedPhotos.forEach((selectedPhoto) => {
+    const image = document.createElement("img");
+    image.src = selectedPhoto.src;
+    image.alt = selectedPhoto.alt;
+    image.width = selectedPhoto.width;
+    image.height = selectedPhoto.height;
+    image.loading = "lazy";
+    image.decoding = "async";
+    photoCollageGrid.appendChild(image);
+  });
+
+  photoCollage.classList.remove("hidden");
+  photoCollage.classList.remove("fade-in");
+  window.requestAnimationFrame(() => photoCollage.classList.add("fade-in"));
+}
+
 function themeFromMoodValue(mood) {
   if (mood <= 3) return "comforting";
   if (mood <= 5) return "calming";
@@ -552,18 +705,21 @@ function setPageBackground(theme, options = {}) {
   }
 
   const normalizedTheme = backgroundThemes[theme] ? theme : "neutral";
-  if (!options.force && backgroundState.theme === normalizedTheme) {
+  const mode = getBackgroundMode();
+  if (!options.force && backgroundState.theme === normalizedTheme && backgroundState.mode === mode) {
     return;
   }
 
   const themeConfig = backgroundThemes[normalizedTheme];
-  const photo = chooseBackgroundPhoto(normalizedTheme, themeConfig.photos);
+  const photos = mode === "compact" && themeConfig.mobilePhotos ? themeConfig.mobilePhotos : themeConfig.photos;
+  const photo = chooseBackgroundPhoto(normalizedTheme, photos, mode);
   if (!photo) {
     return;
   }
 
   backgroundState.theme = normalizedTheme;
   backgroundState.src = photo.src;
+  backgroundState.mode = mode;
 
   const image = new Image();
   image.decoding = "async";
@@ -581,12 +737,12 @@ function setPageBackground(theme, options = {}) {
   image.src = photo.src;
 }
 
-function chooseBackgroundPhoto(theme, photos) {
+function chooseBackgroundPhoto(theme, photos, mode = "regular") {
   if (!photos || !photos.length) {
     return null;
   }
 
-  const storageKey = `kittensParadiseBackground-${theme}`;
+  const storageKey = `kittensParadiseBackground-${theme}-${mode}`;
   const savedPhoto = readSessionValue(storageKey);
   const savedMatch = photos.find((photo) => photo.src === savedPhoto);
   if (savedMatch) {
@@ -599,6 +755,41 @@ function chooseBackgroundPhoto(theme, photos) {
   const selected = randomFrom(available);
   writeSessionValue(storageKey, selected.src);
   return selected;
+}
+
+function bindResponsiveBackground() {
+  if (!window.matchMedia) {
+    return;
+  }
+
+  const query = window.matchMedia("(max-width: 700px)");
+  const refreshBackground = () => {
+    if (backgroundState.theme) {
+      setPageBackground(backgroundState.theme, { force: true });
+    }
+  };
+
+  if (query.addEventListener) {
+    query.addEventListener("change", refreshBackground);
+  } else if (query.addListener) {
+    query.addListener(refreshBackground);
+  }
+}
+
+function getBackgroundMode() {
+  if (window.matchMedia && window.matchMedia("(max-width: 700px)").matches) {
+    return "compact";
+  }
+  return "regular";
+}
+
+function photo(id, width, height, alt) {
+  return {
+    src: `Photos/collage/${id}-collage.jpg`,
+    width,
+    height,
+    alt
+  };
 }
 
 function readSessionValue(key) {
@@ -681,6 +872,10 @@ function resetCheckin() {
   updateMoodDisplay();
   setPageBackground(themeFromMoodValue(Number(slider.value)), { force: true });
   results.classList.add("hidden");
+  if (photoCollage && photoCollageGrid) {
+    photoCollage.classList.add("hidden");
+    photoCollageGrid.innerHTML = "";
+  }
   form.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
