@@ -12,6 +12,10 @@
   --line: rgba(90, 74, 85, 0.16);
   --shadow: 0 18px 45px rgba(93, 76, 74, 0.14);
   --radius: 8px;
+  --page-photo: none;
+  --page-photo-position: center;
+  --photo-overlay-start: rgba(255, 248, 237, 0.76);
+  --photo-overlay-end: rgba(255, 250, 246, 0.88);
 }
 
 * {
@@ -30,6 +34,27 @@ body {
     linear-gradient(135deg, var(--cream), #fffaf6 55%, #f6edf6);
 }
 
+body.has-photo-background {
+  background-color: var(--cream);
+  background-image:
+    linear-gradient(135deg, var(--photo-overlay-start), var(--photo-overlay-end)),
+    radial-gradient(circle at 12% 16%, rgba(201, 183, 232, 0.25), transparent 25rem),
+    radial-gradient(circle at 88% 8%, rgba(184, 216, 230, 0.28), transparent 22rem),
+    var(--page-photo);
+  background-position:
+    center,
+    12% 16%,
+    88% 8%,
+    var(--page-photo-position);
+  background-repeat: no-repeat;
+  background-size:
+    cover,
+    50rem 50rem,
+    44rem 44rem,
+    cover;
+  background-attachment: fixed;
+}
+
 body::before {
   content: "🐾";
   position: fixed;
@@ -38,6 +63,10 @@ body::before {
   color: rgba(156, 79, 102, 0.14);
   font-size: clamp(3rem, 9vw, 7rem);
   pointer-events: none;
+}
+
+body.has-photo-background::before {
+  color: rgba(156, 79, 102, 0.1);
 }
 
 a {
@@ -67,6 +96,10 @@ a {
   border-bottom: 1px solid var(--line);
   background: rgba(255, 248, 237, 0.82);
   backdrop-filter: blur(18px);
+}
+
+body.has-photo-background .site-header {
+  background: rgba(255, 248, 237, 0.88);
 }
 
 .nav {
@@ -127,6 +160,8 @@ a {
 main {
   width: min(1120px, calc(100% - 2rem));
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .hero,
@@ -184,6 +219,12 @@ main {
   max-width: 38rem;
   color: var(--muted);
   font-size: 1.1rem;
+}
+
+body.has-photo-background .hero-copy,
+body.has-photo-background .about-hero,
+body.has-photo-background .checkin-intro {
+  text-shadow: 0 1px 18px rgba(255, 255, 255, 0.86);
 }
 
 .button {
@@ -396,6 +437,20 @@ main {
   box-shadow: var(--shadow);
 }
 
+body.has-photo-background .comfort-card,
+body.has-photo-background .result-card,
+body.has-photo-background .about-card,
+body.has-photo-background fieldset,
+body.has-photo-background .slider-card,
+body.has-photo-background .safety-note {
+  background-color: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(12px);
+}
+
+body.has-photo-background .slider-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(248, 226, 207, 0.72));
+}
+
 .comfort-card {
   min-height: 12rem;
   padding: 1.2rem;
@@ -457,6 +512,13 @@ legend {
   font-weight: 700;
 }
 
+legend {
+  float: left;
+  width: 100%;
+  margin: 0 0 0.75rem;
+  padding: 0;
+}
+
 #mood-message {
   margin: 0.2rem 0 0;
   color: var(--muted);
@@ -503,7 +565,12 @@ input[type="range"] {
   background: rgba(255, 255, 255, 0.58);
 }
 
+body.has-photo-background .mood-regions span {
+  background: rgba(255, 255, 255, 0.76);
+}
+
 fieldset {
+  display: flow-root;
   min-width: 0;
   margin: 0;
   padding: 1rem;
@@ -513,10 +580,11 @@ fieldset {
 }
 
 .option-grid {
+  clear: both;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.65rem;
-  margin-top: 0.75rem;
+  margin-top: 0;
 }
 
 .option-grid.compact {
@@ -536,6 +604,10 @@ fieldset {
   font-size: 0.94rem;
   cursor: pointer;
   transition: border 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+body.has-photo-background .option-grid label {
+  background: rgba(255, 255, 255, 0.78);
 }
 
 .option-grid label:hover,
@@ -610,6 +682,14 @@ fieldset {
 
 .kitten-card {
   background: rgba(184, 216, 230, 0.28);
+}
+
+body.has-photo-background .thought-card {
+  background-color: rgba(243, 236, 251, 0.86);
+}
+
+body.has-photo-background .kitten-card {
+  background-color: rgba(235, 247, 251, 0.86);
 }
 
 .kitten-portrait {
@@ -843,6 +923,9 @@ fieldset {
   color: var(--muted);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.92rem;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 1px 14px rgba(255, 255, 255, 0.85);
 }
 
 .reveal {
@@ -880,6 +963,10 @@ fieldset {
 }
 
 @media (max-width: 850px) {
+  body.has-photo-background {
+    background-attachment: scroll;
+  }
+
   .home-hero,
   .about-grid,
   .recommendation-grid {

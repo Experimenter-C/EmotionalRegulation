@@ -11,6 +11,105 @@ const moodMessages = {
   10: { text: "Someone seems to be having a very good day.", face: "🌞" }
 };
 
+const backgroundThemes = {
+  home: {
+    photos: [
+      { src: "Photos/backgrounds/IMG_1529-bg.jpg", position: "center 42%" },
+      { src: "Photos/backgrounds/IMG_1532-bg.jpg", position: "center" },
+      { src: "Photos/backgrounds/IMG_1534-bg.jpg", position: "center" }
+    ],
+    overlayStart: "rgba(255, 248, 237, 0.72)",
+    overlayEnd: "rgba(255, 250, 246, 0.84)"
+  },
+  about: {
+    photos: [
+      { src: "Photos/backgrounds/IMG_1530-bg.jpg", position: "center 58%" },
+      { src: "Photos/backgrounds/IMG_1533-bg.jpg", position: "center 45%" },
+      { src: "Photos/backgrounds/IMG_1560-bg.jpg", position: "center 45%" }
+    ],
+    overlayStart: "rgba(255, 248, 237, 0.78)",
+    overlayEnd: "rgba(255, 250, 246, 0.88)"
+  },
+  neutral: {
+    photos: [
+      { src: "Photos/backgrounds/IMG_1530-bg.jpg", position: "center 56%" },
+      { src: "Photos/backgrounds/IMG_1533-bg.jpg", position: "center 45%" },
+      { src: "Photos/backgrounds/IMG_1552-bg.jpg", position: "center 42%" },
+      { src: "Photos/backgrounds/IMG_1557-bg.jpg", position: "center 42%" }
+    ],
+    overlayStart: "rgba(255, 248, 237, 0.78)",
+    overlayEnd: "rgba(255, 250, 246, 0.9)"
+  },
+  comforting: {
+    photos: [
+      { src: "Photos/backgrounds/IMG_1533-bg.jpg", position: "center 45%" },
+      { src: "Photos/backgrounds/IMG_1554-bg.jpg", position: "center 38%" },
+      { src: "Photos/backgrounds/IMG_1557-bg.jpg", position: "center 42%" }
+    ],
+    overlayStart: "rgba(255, 248, 237, 0.82)",
+    overlayEnd: "rgba(255, 250, 246, 0.9)"
+  },
+  calming: {
+    photos: [
+      { src: "Photos/backgrounds/IMG_1530-bg.jpg", position: "center 58%" },
+      { src: "Photos/backgrounds/IMG_1531-bg.jpg", position: "center 50%" },
+      { src: "Photos/backgrounds/IMG_1552-bg.jpg", position: "center 38%" }
+    ],
+    overlayStart: "rgba(255, 248, 237, 0.78)",
+    overlayEnd: "rgba(246, 249, 250, 0.88)"
+  },
+  hopeful: {
+    photos: [
+      { src: "Photos/backgrounds/IMG_1529-bg.jpg", position: "center 42%" },
+      { src: "Photos/backgrounds/IMG_1532-bg.jpg", position: "center" },
+      { src: "Photos/backgrounds/IMG_1534-bg.jpg", position: "center" }
+    ],
+    overlayStart: "rgba(255, 248, 237, 0.7)",
+    overlayEnd: "rgba(255, 250, 246, 0.82)"
+  },
+  energetic: {
+    photos: [
+      { src: "Photos/backgrounds/IMG_1534-bg.jpg", position: "center" },
+      { src: "Photos/backgrounds/IMG_1558-bg.jpg", position: "center 40%" },
+      { src: "Photos/backgrounds/IMG_1559-bg.jpg", position: "center 38%" }
+    ],
+    overlayStart: "rgba(255, 248, 237, 0.72)",
+    overlayEnd: "rgba(255, 250, 246, 0.84)"
+  },
+  reflective: {
+    photos: [
+      { src: "Photos/backgrounds/IMG_1531-bg.jpg", position: "center 48%" },
+      { src: "Photos/backgrounds/IMG_1560-bg.jpg", position: "center 40%" },
+      { src: "Photos/backgrounds/IMG_1556-bg.jpg", position: "center 38%" }
+    ],
+    overlayStart: "rgba(255, 248, 237, 0.8)",
+    overlayEnd: "rgba(255, 250, 246, 0.9)"
+  },
+  creative: {
+    photos: [
+      { src: "Photos/backgrounds/IMG_1553-bg.jpg", position: "center" },
+      { src: "Photos/backgrounds/IMG_1558-bg.jpg", position: "center 40%" },
+      { src: "Photos/backgrounds/IMG_1534-bg.jpg", position: "center" }
+    ],
+    overlayStart: "rgba(255, 248, 237, 0.74)",
+    overlayEnd: "rgba(255, 250, 246, 0.86)"
+  },
+  driving: {
+    photos: [
+      { src: "Photos/backgrounds/IMG_1530-bg.jpg", position: "center 58%" },
+      { src: "Photos/backgrounds/IMG_1531-bg.jpg", position: "center 48%" },
+      { src: "Photos/backgrounds/IMG_1529-bg.jpg", position: "center 42%" }
+    ],
+    overlayStart: "rgba(255, 248, 237, 0.76)",
+    overlayEnd: "rgba(246, 249, 250, 0.88)"
+  }
+};
+
+const backgroundState = {
+  theme: null,
+  src: null
+};
+
 const songPools = {
   comforting: {
     english: [
@@ -307,15 +406,24 @@ const safetyNote = document.querySelector("#safety-note");
 let lastAnswers = null;
 
 if (document.body.dataset.page === "checkin") {
-  restoreMood();
+  const restoredMood = restoreMood();
   updateMoodDisplay();
+  setPageBackground(restoredMood ? themeFromMoodValue(Number(slider.value)) : "neutral", { force: true });
   slider.addEventListener("input", updateMoodDisplay);
+  slider.addEventListener("change", () => {
+    setPageBackground(themeFromMoodValue(Number(slider.value)));
+  });
+  document.querySelectorAll('input[name="feeling"], input[name="need"], input[name="place"]').forEach((input) => {
+    input.addEventListener("change", () => setPageBackground(chooseBackgroundTheme(getAnswers())));
+  });
   form.addEventListener("submit", handleSubmit);
   document.querySelector("#reset-checkin").addEventListener("click", resetCheckin);
   document.querySelector("#clear-storage").addEventListener("click", clearStoredInformation);
   document.querySelectorAll("[data-variation]").forEach((button) => {
     button.addEventListener("click", () => regenerate(button.dataset.variation));
   });
+} else {
+  setPageBackground(document.body.dataset.page || "neutral", { force: true });
 }
 
 function updateMoodDisplay(shouldStore = true) {
@@ -333,7 +441,9 @@ function restoreMood() {
   const savedMood = Number(localStorage.getItem("kittensParadiseLastMood"));
   if (savedMood >= 1 && savedMood <= 10) {
     slider.value = savedMood;
+    return savedMood;
   }
+  return null;
 }
 
 function handleSubmit(event) {
@@ -389,6 +499,7 @@ function renderRecommendations(answers) {
   fillList(activityList, selectedActivities);
   reflectionText.textContent = randomFrom(reflections);
   renderKitten(answers.kitten);
+  setPageBackground(chooseBackgroundTheme(answers, moodCategory));
 
   safetyNote.classList.toggle("hidden", !needsSafetyNote(answers));
   document.querySelectorAll(".result-card").forEach((card) => {
@@ -415,6 +526,95 @@ function chooseMoodCategory({ mood, feeling, need }) {
   if (mood >= 8 || feeling === "happy" || feeling === "energetic") return "energetic";
   if (mood >= 6) return "hopeful";
   return "calming";
+}
+
+function chooseBackgroundTheme(answers, fallbackCategory = chooseMoodCategory(answers)) {
+  if (answers.need === "creativity") return "creative";
+  if (answers.need === "space") return "driving";
+  if (answers.feeling === "lonely") return "reflective";
+  if (["sad", "tired", "frustrated"].includes(answers.feeling)) return "comforting";
+  if (["stressed", "anxious", "peaceful"].includes(answers.feeling) || answers.need === "quiet") return "calming";
+  if (["happy", "energetic", "restless"].includes(answers.feeling) || answers.need === "movement") return "energetic";
+  if (answers.place === "outside") return "driving";
+  return fallbackCategory;
+}
+
+function themeFromMoodValue(mood) {
+  if (mood <= 3) return "comforting";
+  if (mood <= 5) return "calming";
+  if (mood <= 7) return "hopeful";
+  return "energetic";
+}
+
+function setPageBackground(theme, options = {}) {
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-data: reduce)").matches) {
+    return;
+  }
+
+  const normalizedTheme = backgroundThemes[theme] ? theme : "neutral";
+  if (!options.force && backgroundState.theme === normalizedTheme) {
+    return;
+  }
+
+  const themeConfig = backgroundThemes[normalizedTheme];
+  const photo = chooseBackgroundPhoto(normalizedTheme, themeConfig.photos);
+  if (!photo) {
+    return;
+  }
+
+  backgroundState.theme = normalizedTheme;
+  backgroundState.src = photo.src;
+
+  const image = new Image();
+  image.decoding = "async";
+  image.onload = () => {
+    if (backgroundState.src !== photo.src) {
+      return;
+    }
+
+    document.body.style.setProperty("--page-photo", `url("${photo.src}")`);
+    document.body.style.setProperty("--page-photo-position", photo.position || "center");
+    document.body.style.setProperty("--photo-overlay-start", themeConfig.overlayStart);
+    document.body.style.setProperty("--photo-overlay-end", themeConfig.overlayEnd);
+    document.body.classList.add("has-photo-background");
+  };
+  image.src = photo.src;
+}
+
+function chooseBackgroundPhoto(theme, photos) {
+  if (!photos || !photos.length) {
+    return null;
+  }
+
+  const storageKey = `kittensParadiseBackground-${theme}`;
+  const savedPhoto = readSessionValue(storageKey);
+  const savedMatch = photos.find((photo) => photo.src === savedPhoto);
+  if (savedMatch) {
+    return savedMatch;
+  }
+
+  const available = photos.length > 1
+    ? photos.filter((photo) => photo.src !== backgroundState.src)
+    : photos;
+  const selected = randomFrom(available);
+  writeSessionValue(storageKey, selected.src);
+  return selected;
+}
+
+function readSessionValue(key) {
+  try {
+    return sessionStorage.getItem(key);
+  } catch (error) {
+    return null;
+  }
+}
+
+function writeSessionValue(key, value) {
+  try {
+    sessionStorage.setItem(key, value);
+  } catch (error) {
+    // Background selection can stay random if session storage is unavailable.
+  }
 }
 
 function buildSongSet(category) {
@@ -479,6 +679,7 @@ function resetCheckin() {
   slider.value = localStorage.getItem("kittensParadiseLastMood") || "5";
   lastAnswers = null;
   updateMoodDisplay();
+  setPageBackground(themeFromMoodValue(Number(slider.value)), { force: true });
   results.classList.add("hidden");
   form.scrollIntoView({ behavior: "smooth", block: "start" });
 }
@@ -487,4 +688,5 @@ function clearStoredInformation() {
   localStorage.removeItem("kittensParadiseLastMood");
   slider.value = "5";
   updateMoodDisplay(false);
+  setPageBackground("neutral", { force: true });
 }
