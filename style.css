@@ -723,6 +723,29 @@ body.has-photo-background .option-grid label {
   margin-top: 0.38rem;
 }
 
+.activity-item {
+  display: grid;
+  gap: 0.18rem;
+}
+
+.activity-heading {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.55rem;
+  align-items: baseline;
+}
+
+.activity-duration {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.activity-instruction {
+  display: block;
+  line-height: 1.4;
+}
+
 .thought-card {
   background: rgba(201, 183, 232, 0.24);
 }

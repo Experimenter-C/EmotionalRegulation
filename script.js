@@ -456,7 +456,7 @@ const activities = {
     "Listen to three songs with your eyes closed.",
     "Take a warm shower and let it count as the task.",
     "Sit somewhere with tea or coffee without using the phone.",
-    "Do absolutely nothing for ten minutes.",
+    "Keep silent for 2-5 minutes with your phone aside.",
     "Write three sentences about what is bothering you.",
     "Stretch slowly for five minutes."
   ],
@@ -513,6 +513,83 @@ const activities = {
     "Let one person know today has been a bit much."
   ]
 };
+
+const mindfulActivities = [
+  activity(
+    "om-chanting",
+    "Om chanting",
+    "2-3 min",
+    "Sit comfortably. Take a slow breath and chant Om gently 3-5 times.",
+    {
+      categories: ["calming", "comforting", "hopeful", "energetic"],
+      feelings: ["stressed", "anxious", "frustrated", "restless", "sad", "peaceful", "happy"],
+      needs: ["quiet", "comfort", "space"],
+      energies: ["almost-none", "little", "moderate", "plenty"]
+    }
+  ),
+  activity(
+    "silence",
+    "A few minutes of silence",
+    "2-5 min",
+    "Sit quietly. Keep the phone aside and notice your breathing and surroundings.",
+    {
+      categories: ["calming", "comforting", "hopeful"],
+      feelings: ["stressed", "anxious", "frustrated", "restless", "peaceful", "tired", "unknown"],
+      needs: ["quiet", "comfort", "space"],
+      energies: ["almost-none", "little", "moderate", "plenty"]
+    }
+  ),
+  activity(
+    "pranayama",
+    "Simple pranayama",
+    "2-3 min",
+    "Sit comfortably and take slow, gentle breaths for 2-3 minutes.",
+    {
+      categories: ["calming", "comforting", "hopeful"],
+      feelings: ["stressed", "anxious", "frustrated", "restless", "sad", "tired", "unknown"],
+      needs: ["quiet", "comfort", "space"],
+      energies: ["almost-none", "little", "moderate", "plenty"]
+    }
+  ),
+  activity(
+    "basic-yoga",
+    "Basic yoga",
+    "3-5 min",
+    "Do a few gentle stretches or simple yoga movements for 3-5 minutes.",
+    {
+      categories: ["calming", "comforting", "hopeful", "energetic"],
+      feelings: ["stressed", "anxious", "frustrated", "restless", "sad", "peaceful", "happy", "energetic"],
+      needs: ["movement", "energy", "quiet", "comfort"],
+      energies: ["little", "moderate", "plenty"],
+      minMood: 2
+    }
+  ),
+  activity(
+    "grounding",
+    "Grounding exercise",
+    "2-5 min",
+    "Notice 5 things you can see, 4 you can touch, 3 you can hear, 2 you can smell, and 1 you can taste or notice internally.",
+    {
+      categories: ["calming", "comforting", "hopeful"],
+      feelings: ["stressed", "anxious", "frustrated", "restless", "sad", "lonely", "unknown"],
+      needs: ["quiet", "comfort", "space"],
+      energies: ["almost-none", "little", "moderate", "plenty"],
+      maxMood: 7
+    }
+  ),
+  activity(
+    "self-affirmations",
+    "Self-affirmations",
+    "3-5 min",
+    "Write 2-3 realistic positive statements, like: I can handle this calmly.",
+    {
+      categories: ["comforting", "hopeful", "energetic"],
+      feelings: ["sad", "lonely", "unknown", "peaceful", "happy"],
+      needs: ["comfort", "energy", "quiet"],
+      energies: ["almost-none", "little", "moderate", "plenty"]
+    }
+  )
+];
 
 const reflections = [
   "You do not have to solve the entire week tonight.",
@@ -652,7 +729,7 @@ function regenerate(variation) {
 function renderRecommendations(answers) {
   const moodCategory = chooseMoodCategory(answers);
   const selectedSongs = buildSongSet(moodCategory, answers);
-  const selectedActivities = buildActivities(answers);
+  const selectedActivities = buildActivities(answers, moodCategory);
 
   fillList(musicList, selectedSongs);
   fillList(activityList, selectedActivities);
@@ -700,7 +777,7 @@ function chooseBackgroundTheme(answers, fallbackCategory = chooseMoodCategory(an
 }
 
 function chooseSupportingPhotoTheme(answers, fallbackCategory, selectedActivities) {
-  const activityText = selectedActivities.join(" ").toLowerCase();
+  const activityText = selectedActivities.map(getActivitySearchText).join(" ").toLowerCase();
 
   if (activityText.includes("draw") || activityText.includes("sketch") || activityText.includes("colors")) {
     return "creative";
@@ -910,34 +987,135 @@ function shuffleUnique(items) {
   return pickUnique([...new Set(items)], items.length);
 }
 
-function buildActivities(answers) {
-  let pool = [];
+function buildActivities(answers, moodCategory = chooseMoodCategory(answers)) {
+  let legacyPool = [];
 
-  if (answers.energy === "almost-none") pool = pool.concat(activities.veryLow);
-  if (answers.energy === "little") pool = pool.concat(activities.veryLow, activities.low);
-  if (answers.energy === "moderate") pool = pool.concat(activities.low, activities.calm, activities.creative);
-  if (answers.energy === "plenty") pool = pool.concat(activities.energetic, activities.creative);
-  if (answers.need === "creativity") pool = pool.concat(activities.creative);
-  if (answers.need === "movement") pool = pool.concat(activities.energetic);
-  if (answers.need === "connection") pool = pool.concat(activities.connection);
-  if (answers.place === "outside") pool = pool.concat(activities.outdoor);
-  if (answers.place === "indoors") pool = pool.concat(activities.calm, activities.creative);
-  if (answers.need === "space" || answers.feeling === "restless") pool = pool.concat(activities.driving);
+  if (answers.energy === "almost-none") legacyPool = legacyPool.concat(activities.veryLow);
+  if (answers.energy === "little") legacyPool = legacyPool.concat(activities.veryLow, activities.low);
+  if (answers.energy === "moderate") legacyPool = legacyPool.concat(activities.low, activities.calm, activities.creative);
+  if (answers.energy === "plenty") legacyPool = legacyPool.concat(activities.energetic, activities.creative);
+  if (answers.need === "creativity") legacyPool = legacyPool.concat(activities.creative);
+  if (answers.need === "movement") legacyPool = legacyPool.concat(activities.energetic);
+  if (answers.need === "connection") legacyPool = legacyPool.concat(activities.connection);
+  if (answers.place === "outside") legacyPool = legacyPool.concat(activities.outdoor);
+  if (answers.place === "indoors") legacyPool = legacyPool.concat(activities.calm, activities.creative);
+  if (answers.need === "space" || answers.feeling === "restless") legacyPool = legacyPool.concat(activities.driving);
 
   if (answers.time === "5") {
-    pool = pool.filter((activity) => !activity.toLowerCase().includes("hour") && !activity.toLowerCase().includes("project"));
+    legacyPool = legacyPool.filter((activity) => !activity.toLowerCase().includes("hour") && !activity.toLowerCase().includes("project"));
   }
 
-  return pickUnique(pool.length ? pool : activities.calm, randomFrom([3, 4, 5]));
+  const targetCount = answers.time === "5" ? 3 : randomFrom([3, 4]);
+  const mindfulPool = buildMindfulActivityPool(answers, moodCategory);
+  const mindfulTarget = mindfulPool.length ? Math.min(mindfulPool.length, randomFrom([1, 2])) : 0;
+  const selectedMindful = pickUnique(mindfulPool, mindfulTarget);
+  const selectedMindfulIds = selectedMindful.map((candidate) => candidate.id);
+  const filteredLegacyPool = filterDuplicateActivityConcepts(legacyPool.length ? legacyPool : activities.calm, selectedMindfulIds);
+  const selectedLegacy = pickUnique(filteredLegacyPool, Math.max(0, targetCount - selectedMindful.length));
+
+  return shuffleUniqueActivities([...selectedMindful, ...selectedLegacy]).slice(0, targetCount);
 }
 
 function fillList(listElement, items) {
   listElement.innerHTML = "";
   items.forEach((item) => {
     const li = document.createElement("li");
-    li.textContent = item;
+    if (typeof item === "string") {
+      li.textContent = item;
+    } else {
+      li.className = "activity-item";
+
+      const heading = document.createElement("span");
+      heading.className = "activity-heading";
+
+      const title = document.createElement("strong");
+      title.textContent = item.title;
+
+      const duration = document.createElement("span");
+      duration.className = "activity-duration";
+      duration.textContent = item.duration;
+
+      const instruction = document.createElement("span");
+      instruction.className = "activity-instruction";
+      instruction.textContent = item.instruction;
+
+      heading.append(title, duration);
+      li.append(heading, instruction);
+    }
     listElement.appendChild(li);
   });
+}
+
+function buildMindfulActivityPool(answers, moodCategory) {
+  return mindfulActivities
+    .map((candidate) => ({
+      candidate,
+      score: scoreMindfulActivity(candidate, answers, moodCategory)
+    }))
+    .filter(({ score }) => score >= 7)
+    .sort((first, second) => second.score - first.score)
+    .map(({ candidate }) => candidate);
+}
+
+function scoreMindfulActivity(candidate, answers, moodCategory) {
+  const mood = Number(answers.mood);
+  const difficultFeelings = ["stressed", "anxious", "frustrated", "restless", "sad", "lonely", "tired", "unknown"];
+  if (candidate.minMood && mood < candidate.minMood) return 0;
+  if (candidate.maxMood && mood > candidate.maxMood) return 0;
+  if (candidate.energies && !candidate.energies.includes(answers.energy)) return 0;
+
+  let score = 0;
+  if (candidate.categories.includes(moodCategory)) score += 2;
+  if (candidate.feelings.includes(answers.feeling)) score += 4;
+  if (candidate.needs.includes(answers.need)) score += 3;
+  if (candidate.energies.includes(answers.energy)) score += 1;
+  if (difficultFeelings.includes(answers.feeling) && candidate.feelings.includes(answers.feeling)) score += 2;
+  if (mood <= 3 && ["grounding", "self-affirmations", "pranayama"].includes(candidate.id)) score += 2;
+  if (mood >= 5 && mood <= 8 && ["basic-yoga", "om-chanting", "silence", "self-affirmations"].includes(candidate.id)) score += 1;
+
+  return score;
+}
+
+function filterDuplicateActivityConcepts(pool, selectedMindfulIds) {
+  if (!selectedMindfulIds.includes("silence")) {
+    return pool;
+  }
+
+  return pool.filter((item) => {
+    const text = item.toLowerCase();
+    return !text.includes("silent") && !text.includes("quietly");
+  });
+}
+
+function shuffleUniqueActivities(items) {
+  const available = [];
+  const seen = new Set();
+  items.forEach((item) => {
+    const signature = getActivitySignature(item);
+    if (!seen.has(signature)) {
+      seen.add(signature);
+      available.push(item);
+    }
+  });
+  return pickUnique(available, available.length);
+}
+
+function getActivitySignature(item) {
+  return typeof item === "string" ? item : item.id;
+}
+
+function getActivitySearchText(item) {
+  return typeof item === "string" ? item : `${item.title} ${item.instruction}`;
+}
+
+function activity(id, title, duration, instruction, rules) {
+  return {
+    id,
+    title,
+    duration,
+    instruction,
+    ...rules
+  };
 }
 
 function pickUnique(source, count) {
